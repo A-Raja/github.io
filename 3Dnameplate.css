@@ -1,0 +1,97 @@
+@import "compass/css3";
+
+@import "compass/reset";
+@import "compass/css3";
+
+$white: #0000CD;
+$black: #191970;
+
+@mixin extrudeText($boxColor, $distance) {
+
+    $shadows: null;
+
+    //adding lighten bevel
+    $shadows: append($shadows, lighten($boxColor, 10) 0.006em 0.006em 0.007em, comma);
+
+    //extruding the box
+    @for $i from 1 through $distance {
+        $dist: $i + px;
+        $shadows: append($shadows, ( darken($boxColor, 15) 0px $dist 1px), comma);
+    }
+
+    //adding the shadows
+    $shadows: append($shadows, ( rgba($black, 0.4) 0px 8px 6px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 0px 8px 10px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 0px 20px 40px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 10px 5px 8px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 20px 10px 25px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 40px 10px 40px), comma);
+    $shadows: append($shadows, ( lighten($white, 50) -0.3em 0.1em 100px), comma);
+
+    @include text-shadow($shadows);
+}
+
+@mixin extrudeBox($boxColor, $distance) {
+
+    $shadows: null;
+    background-color: $boxColor;
+
+    //adding lighten bevel
+    $shadows: append($shadows, ( 0.006em 0.006em 0.007em lighten($boxColor, 10) ), comma);
+
+    //extruding the box
+    @for $i from 1 through $distance {
+        $dist: $i + px;
+        $shadows: append($shadows, ( 0px $dist 1px darken($boxColor, 15)), comma);
+    }
+
+    //adding the shadows
+    $shadows: append($shadows, ( rgba($black, 0.4) 0px 8px 6px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 0px 8px 10px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 0px 20px 40px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 0px 10px 25px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 20px 10px 25px), comma);
+    $shadows: append($shadows, ( rgba($black, 0.2) 40px 10px 40px), comma);
+    $shadows: append($shadows, ( lighten($white, 100) -0.3em 0.1em 100px), comma);
+
+    @include box-shadow($shadows);
+}
+
+body {
+  background-color: #d0d0d0;
+}
+
+.container {
+  margin:00px auto 0;
+  width: 1000px;
+  
+}
+
+.switch-button {
+	@include perspective( 900px );
+	display: block;
+    .switch-button_face {
+        display: inline-block;
+        width: 30em;
+        height: 10em;
+        transform-origin: 50% 50%;
+      text-align: center;
+		@include transform( rotateX(0deg) rotateZ(0deg) );
+		@include extrudeBox( $white, 5 );
+		@include transition(all 0.3s ease);
+		&:hover {
+      cursor: pointer;
+			@include transform( rotateX(0deg) rotateZ(0deg) );
+			 
+			
+		}
+    }
+    .switch-button_icon {
+    	color: $white;
+    	font-size: 6em;
+    	margin-top: 0.3em;
+      display: inline-block;
+    	@include extrudeText( $black, 5 );
+    	@include transition(all 0.3s ease);
+    }
+}
