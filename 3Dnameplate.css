@@ -1,97 +1,119 @@
-@import "compass/css3";
-
-@import "compass/reset";
-@import "compass/css3";
-
-$white: #0000CD;
-$black: #191970;
-
-@mixin extrudeText($boxColor, $distance) {
-
-    $shadows: null;
-
-    //adding lighten bevel
-    $shadows: append($shadows, lighten($boxColor, 10) 0.006em 0.006em 0.007em, comma);
-
-    //extruding the box
-    @for $i from 1 through $distance {
-        $dist: $i + px;
-        $shadows: append($shadows, ( darken($boxColor, 15) 0px $dist 1px), comma);
-    }
-
-    //adding the shadows
-    $shadows: append($shadows, ( rgba($black, 0.4) 0px 8px 6px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 0px 8px 10px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 0px 20px 40px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 10px 5px 8px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 20px 10px 25px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 40px 10px 40px), comma);
-    $shadows: append($shadows, ( lighten($white, 50) -0.3em 0.1em 100px), comma);
-
-    @include text-shadow($shadows);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 
-@mixin extrudeBox($boxColor, $distance) {
+html {
+  line-height: 1;
+}
 
-    $shadows: null;
-    background-color: $boxColor;
+ol, ul {
+  list-style: none;
+}
 
-    //adding lighten bevel
-    $shadows: append($shadows, ( 0.006em 0.006em 0.007em lighten($boxColor, 10) ), comma);
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
-    //extruding the box
-    @for $i from 1 through $distance {
-        $dist: $i + px;
-        $shadows: append($shadows, ( 0px $dist 1px darken($boxColor, 15)), comma);
-    }
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
 
-    //adding the shadows
-    $shadows: append($shadows, ( rgba($black, 0.4) 0px 8px 6px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 0px 8px 10px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 0px 20px 40px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 0px 10px 25px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 20px 10px 25px), comma);
-    $shadows: append($shadows, ( rgba($black, 0.2) 40px 10px 40px), comma);
-    $shadows: append($shadows, ( lighten($white, 100) -0.3em 0.1em 100px), comma);
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
 
-    @include box-shadow($shadows);
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
 }
 
 body {
   background-color: #d0d0d0;
 }
 
-.container {
-  margin:00px auto 0;
-  width: 1000px;
-  
+.grid-container>div {
+  display:grid;
+grid-template:70px 200px;
+grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
 }
 
+
 .switch-button {
-	@include perspective( 900px );
-	display: block;
-    .switch-button_face {
-        display: inline-block;
-        width: 30em;
-        height: 10em;
-        transform-origin: 50% 50%;
-      text-align: center;
-		@include transform( rotateX(0deg) rotateZ(0deg) );
-		@include extrudeBox( $white, 5 );
-		@include transition(all 0.3s ease);
-		&:hover {
-      cursor: pointer;
-			@include transform( rotateX(0deg) rotateZ(0deg) );
-			 
-			
-		}
-    }
-    .switch-button_icon {
-    	color: $white;
-    	font-size: 6em;
-    	margin-top: 0.3em;
-      display: inline-block;
-    	@include extrudeText( $black, 5 );
-    	@include transition(all 0.3s ease);
-    }
+  -moz-perspective: 400px;
+  -webkit-perspective: 400px;
+  perspective: 400px;
+  display: block;
+}
+.switch-button .switch-button_face {
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  transform-origin: 50% 50%;
+  text-align: center;
+  -moz-transform: rotateX(20deg) rotateZ(0deg);
+  -ms-transform: rotateX(20deg) rotateZ(0deg);
+  -webkit-transform: rotateX(20deg) rotateZ(0deg);
+  transform: rotateX(20deg) rotateZ(0deg);
+  background-color: #f5f5f5;
+  -moz-box-shadow: 0.006em 0.006em 0.007em white, 0px 1px 1px #cfcfcf, 0px 2px 1px #cfcfcf, 0px 3px 1px #cfcfcf, 0px 4px 1px #cfcfcf, 0px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 0px 10px 25px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
+  -webkit-box-shadow: 0.006em 0.006em 0.007em white, 0px 1px 1px #cfcfcf, 0px 2px 1px #cfcfcf, 0px 3px 1px #cfcfcf, 0px 4px 1px #cfcfcf, 0px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 0px 10px 25px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
+  box-shadow: 0.006em 0.006em 0.007em white, 0px 1px 1px #cfcfcf, 0px 2px 1px #cfcfcf, 0px 3px 1px #cfcfcf, 0px 4px 1px #cfcfcf, 0px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 0px 10px 25px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.switch-button .switch-button_face:hover {
+  cursor: pointer;
+  -moz-transform: rotateX(20deg) rotateZ(45deg);
+  -ms-transform: rotateX(20deg) rotateZ(45deg);
+  -webkit-transform: rotateX(20deg) rotateZ(45deg);
+  transform: rotateX(20deg) rotateZ(45deg);
+  -moz-box-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 20px -5px 40px, rgba(16, 16, 16, 0.2) 30px 0px 60px, rgba(16, 16, 16, 0.2) 10px 10px 65px, rgba(16, 16, 16, 0.2) 10px 10px 55px, rgba(16, 16, 16, 0.2) 30px 0px 80px, white -0.3em 0.1em 100px;
+  -webkit-box-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 20px -5px 40px, rgba(16, 16, 16, 0.2) 30px 0px 60px, rgba(16, 16, 16, 0.2) 10px 10px 65px, rgba(16, 16, 16, 0.2) 10px 10px 55px, rgba(16, 16, 16, 0.2) 30px 0px 80px, white -0.3em 0.1em 100px;
+  box-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 20px -5px 40px, rgba(16, 16, 16, 0.2) 30px 0px 60px, rgba(16, 16, 16, 0.2) 10px 10px 65px, rgba(16, 16, 16, 0.2) 10px 10px 55px, rgba(16, 16, 16, 0.2) 30px 0px 80px, white -0.3em 0.1em 100px;
+}
+.switch-button .switch-button_face:hover .switch-button_icon {
+  text-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 14px 0px 10px, rgba(16, 16, 16, 0.2) 41px -20px 40px, rgba(16, 16, 16, 0.2) 10px 0px 25px, rgba(16, 16, 16, 0.2) 10px 0px 25px, rgba(16, 16, 16, 0.2) 30px -30px 40px, white -0.3em 0.1em 100px;
+}
+.switch-button .switch-button_icon {
+  color: #f5f5f5;
+  font-size: 6em;
+  margin-top: 0.3em;
+  display: inline-block;
+  text-shadow: white 0.006em 0.006em 0.007em #cfcfcf 0px 1px 1px #cfcfcf 0px 3px 1px;
+  text-shadow: white 0.006em 0.006em 0.007em, #cfcfcf 0px 1px 1px, #cfcfcf 0px 2px 1px, #cfcfcf 0px 3px 1px, #cfcfcf 0px 4px 1px, #cfcfcf 0px 5px 1px, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 10px 5px 8px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
