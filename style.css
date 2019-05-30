@@ -48,7 +48,7 @@ body {
 
 .grid-container>div {
   display:grid;
-grid-template:70px 200px;
+grid-template:700px 200px;
 grid-gap: 10px;
   background-color: #2196F3;
   padding: 10px;
@@ -63,7 +63,7 @@ grid-gap: 10px;
 }
 .switch-button .switch-button_face {
   display: inline-block;
-  width: 10em;
+  width: 100em;
   height: 10em;
   transform-origin: 50% 50%;
   text-align: center;
