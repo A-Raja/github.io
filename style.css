@@ -1,107 +1,40 @@
- {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-html {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
+html, body {
+	
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-  background-color: #FF4500;
+	background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45), 
+      rgba(0, 0, 0, 0.45)
+    ),
+    url('https://silverscreen.in/wp-content/uploads/2016/06/anushka-shetty-at-kanika-dhillons-the-dance-of-durga-book-launch-photos-0003.jpg');
+	background-position: center;
+	background-size: cover;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	perspective: 800px;
 }
 
-.grid-container>div {
-  display:grid;
-grid-template:700px 200px;
-grid-gap: 10px;
-  background-color: #191970;
-  padding: 10px;
-}
-
-
-.switch-button {
-  -moz-perspective: 4000px;
-  -webkit-perspective: 4000px;
-  perspective: 4000px;
-  display: block;
-}
-.switch-button .switch-button_face {
-  display: inline-block;
-  width: 100em;
-  height: 10em;
-  transform-origin: 50% 50%;
-  text-align: center;
-  -moz-transform: rotateX(20deg) rotateZ(0deg);
-  -ms-transform: rotateX(20deg) rotateZ(0deg);
-  -webkit-transform: rotateX(20deg) rotateZ(0deg);
-  transform: rotateX(20deg) rotateZ(0deg);
-  background-color: #191970;
-  -moz-box-shadow: 0.006em 0.006em 0.007em white, 0px 1px 1px #cfcfcf, 0px 2px 1px #cfcfcf, 0px 3px 1px #cfcfcf, 0px 4px 1px #cfcfcf, 0px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 0px 10px 25px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
-  -webkit-box-shadow: 0.006em 0.006em 0.007em white, 0px 1px 1px #cfcfcf, 0px 2px 1px #cfcfcf, 0px 3px 1px #cfcfcf, 0px 4px 1px #cfcfcf, 0px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 0px 10px 25px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
-  box-shadow: 0.006em 0.006em 0.007em white, 0px 1px 1px #cfcfcf, 0px 2px 1px #cfcfcf, 0px 3px 1px #cfcfcf, 0px 4px 1px #cfcfcf, 0px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 0px 10px 25px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-.switch-button .switch-button_face:hover {
-  cursor: pointer;
-  -moz-transform: rotateX(20deg) rotateZ(45deg);
-  -ms-transform: rotateX(20deg) rotateZ(45deg);
-  -webkit-transform: rotateX(20deg) rotateZ(45deg);
-  transform: rotateX(20deg) rotateZ(45deg);
-  -moz-box-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 20px -5px 40px, rgba(16, 16, 16, 0.2) 30px 0px 60px, rgba(16, 16, 16, 0.2) 10px 10px 65px, rgba(16, 16, 16, 0.2) 10px 10px 55px, rgba(16, 16, 16, 0.2) 30px 0px 80px, white -0.3em 0.1em 100px;
-  -webkit-box-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 20px -5px 40px, rgba(16, 16, 16, 0.2) 30px 0px 60px, rgba(16, 16, 16, 0.2) 10px 10px 65px, rgba(16, 16, 16, 0.2) 10px 10px 55px, rgba(16, 16, 16, 0.2) 30px 0px 80px, white -0.3em 0.1em 100px;
-  box-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 20px -5px 40px, rgba(16, 16, 16, 0.2) 30px 0px 60px, rgba(16, 16, 16, 0.2) 10px 10px 65px, rgba(16, 16, 16, 0.2) 10px 10px 55px, rgba(16, 16, 16, 0.2) 30px 0px 80px, white -0.3em 0.1em 100px;
-}
-.switch-button .switch-button_face:hover .switch-button_icon {
-  text-shadow: 0.006em 0.006em 0.007em white, 1px 1px 1px #cfcfcf, 2px 2px 1px #cfcfcf, 3px 3px 1px #cfcfcf, 4px 4px 1px #cfcfcf, 5px 5px 1px #cfcfcf, rgba(16, 16, 16, 0.4) 6px 6px 6px, rgba(16, 16, 16, 0.2) 14px 0px 10px, rgba(16, 16, 16, 0.2) 41px -20px 40px, rgba(16, 16, 16, 0.2) 10px 0px 25px, rgba(16, 16, 16, 0.2) 10px 0px 25px, rgba(16, 16, 16, 0.2) 30px -30px 40px, white -0.3em 0.1em 100px;
-}
-.switch-button .switch-button_icon {
-  color: #f5f5f5;
-  font-size: 6em;
-  margin-top: 0.3em;
-  display: inline-block;
-  text-shadow: white 0.006em 0.006em 0.007em #cfcfcf 0px 1px 1px #cfcfcf 0px 3px 1px;
-  text-shadow: white 0.006em 0.006em 0.007em, #cfcfcf 0px 1px 1px, #cfcfcf 0px 2px 1px, #cfcfcf 0px 3px 1px, #cfcfcf 0px 4px 1px, #cfcfcf 0px 5px 1px, rgba(16, 16, 16, 0.4) 0px 8px 6px, rgba(16, 16, 16, 0.2) 0px 8px 10px, rgba(16, 16, 16, 0.2) 0px 20px 40px, rgba(16, 16, 16, 0.2) 10px 5px 8px, rgba(16, 16, 16, 0.2) 20px 10px 25px, rgba(16, 16, 16, 0.2) 40px 10px 40px, white -0.3em 0.1em 100px;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+.card {
+	width: 480px;
+	height: 300px;
+	
+	background-image: url('http://tiny.cc/6jqw8y');
+	background-position: center;
+	background-size: cover;
+	
+	box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30),
+							0 15px 12px rgba(0, 0, 0, 0.22);
+	
+	transition-property: transform;
+	transition-timing-function: cubic-bezier(.550, .055, .675, .19);
+	
 }
